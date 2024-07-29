@@ -6,7 +6,7 @@ import Button from "@mui/material/Button";
 import { useContext } from "react";
 import { MyContext } from "../../App";
 
-const ProductItem = () => {
+const ProductItem = ({ isSingleRow }) => {
   const context = useContext(MyContext);
 
   const viewProductDetails = (id) => {
@@ -15,8 +15,10 @@ const ProductItem = () => {
 
   return (
     <>
-      <div className="item product-item">
-        <div className="img-wrapper">
+      <div
+        className={`item product-item ${isSingleRow ? "row one-row g-0" : ""}`}
+      >
+        <div className={`img-wrapper ${isSingleRow ? "col-md-4" : ""}`}>
           <Link to="/">
             <img
               draggable="false"
@@ -40,7 +42,7 @@ const ProductItem = () => {
           </div>
         </div>
 
-        <div className="content-wrapper">
+        <div className={`content-wrapper ${isSingleRow ? "col-md-8" : ""}`}>
           <h3
             className="product-title"
             title="Kẹo cứng Caramel nguyên bản của Werther"

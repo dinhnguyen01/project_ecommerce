@@ -9,6 +9,7 @@ import axios from "axios";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import ProductModal from "./components/productModal/productModal.js";
 import Listing from "./pages/listing/listing.js";
+import ProductDetail from "./pages/productDetail/productDetail.js";
 
 const MyContext = createContext();
 
@@ -40,8 +41,9 @@ function App() {
       <MyContext.Provider value={values}>
         <Header />
         <Routes>
-          <Route path="/" exact={true} element={<Home />} />
-          <Route path="/cat/:id" exact={true} element={<Listing />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/cat/:id" element={<Listing />} />
+          <Route path="/product/:id" element={<ProductDetail />} />
         </Routes>
         <Footer />
 
