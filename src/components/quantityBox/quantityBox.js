@@ -16,21 +16,14 @@ const QuantityBox = () => {
 
   return (
     <>
-      <div
-        className="d-flex align-items-center"
-        style={{ marginBottom: "40px" }}
-      >
-        <div className="quantity-drop d-flex align-items-center">
-          <Button className="btn-minus" onClick={minus}>
-            <FiMinus />
-          </Button>
-          <input type="text" value={inputVal} readOnly />
-          <Button className="btn-plus" onClick={plus}>
-            <FiPlus />
-          </Button>
-        </div>
-
-        <Button className="btn-add-cart">Thêm vào giỏ hàng</Button>
+      <div className="quantity-drop d-flex align-items-center">
+        <Button className="btn-minus" onClick={minus}>
+          <FiMinus />
+        </Button>
+        <input type="text" value={inputVal} readOnly />
+        <Button className="btn-plus" onClick={plus}>
+          <FiPlus />
+        </Button>
       </div>
     </>
   );

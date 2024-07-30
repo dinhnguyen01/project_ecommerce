@@ -90,11 +90,13 @@ const ProductDetail = () => {
     setActiveSize(index);
   };
 
-  const [value, setValue] = useState(0);
+  const [valueTab, setValueTab] = useState(0);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
+  const handleChange = (event, tab) => {
+    setValueTab(tab);
   };
+
+  const [valueStar, setValueStar] = useState(0);
 
   return (
     <>
@@ -213,7 +215,13 @@ const ProductDetail = () => {
                   </ul>
                 </div>
 
-                <QuantityBox />
+                <div
+                  className="d-flex align-items-center"
+                  style={{ marginBottom: "40px" }}
+                >
+                  <QuantityBox />
+                  <Button className="btn-add-cart">Thêm vào giỏ hàng</Button>
+                </div>
 
                 <div className="product-action d-flex align-items-center ">
                   <Button className="btn-wishlist d-flex align-items-center">
@@ -307,7 +315,7 @@ const ProductDetail = () => {
           <div className="tabs-wrapper">
             <div className="tabs-btn">
               <CustomTabs
-                value={value}
+                value={valueTab}
                 onChange={handleChange}
                 aria-label="basic tabs example"
               >
@@ -317,7 +325,7 @@ const ProductDetail = () => {
               </CustomTabs>
             </div>
             <div className="tabs-content">
-              <TabPanel value={value} index={0}>
+              <TabPanel value={valueTab} index={0}>
                 <div className="description">
                   <p>
                     Quisque varius diam vel metus mattis, id aliquam diam
@@ -346,7 +354,8 @@ const ProductDetail = () => {
                   </p>
                 </div>
               </TabPanel>
-              <TabPanel value={value} index={1}>
+
+              <TabPanel value={valueTab} index={1}>
                 <table className="table">
                   <tbody>
                     <tr>
@@ -360,7 +369,8 @@ const ProductDetail = () => {
                   </tbody>
                 </table>
               </TabPanel>
-              <TabPanel value={value} index={2}>
+
+              <TabPanel value={valueTab} index={2}>
                 <div className="review">
                   <div className="comment">
                     <h6 className="mb-4">
@@ -402,6 +412,64 @@ const ProductDetail = () => {
                           </div>
                         </div>
                       </div>
+                    </div>
+
+                    <div className="review-form">
+                      <div
+                        className="fs-5 pb-3"
+                        style={{ borderBottom: "1px solid #e6e6e6" }}
+                      >
+                        Thêm đánh giá của bạn
+                      </div>
+
+                      <form className="comment-form mt-4">
+                        <b className="comment-note">
+                          Địa chỉ email của bạn sẽ được bảo mật tuyệt đối. Các
+                          trường bắt buộc được đánh dấu *
+                        </b>
+
+                        <div className="rating-star d-flex align-items-center mt-3">
+                          <p className="me-2">Đánh giá sao *</p>
+                          <Rating
+                            name="simple-controlled"
+                            value={valueStar}
+                            onChange={(event, star) => {
+                              setValueStar(star);
+                            }}
+                            required
+                          />
+                        </div>
+
+                        <div className="review-text mt-3">
+                          <p className="mb-2">Đánh giá của bạn *</p>
+                          <textarea
+                            placeholder="Nhập đánh giá của bạn"
+                            required
+                          ></textarea>
+                        </div>
+
+                        <div className="comment-form-author mt-3">
+                          <p className="mb-2">Họ và tên *</p>
+                          <input
+                            type="text"
+                            placeholder="Nhập họ tên"
+                            required
+                          />
+                        </div>
+
+                        <div className="comment-form-email mt-3">
+                          <p className="mb-2">Địa chỉ email *</p>
+                          <input
+                            type="email"
+                            placeholder="Nhập email"
+                            required
+                          />
+                        </div>
+
+                        <Button type="submit" className="mt-4">
+                          Gửi
+                        </Button>
+                      </form>
                     </div>
                   </div>
                 </div>

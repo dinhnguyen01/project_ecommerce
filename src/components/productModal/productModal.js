@@ -87,8 +87,13 @@ const ProductModal = () => {
                 vào giỏ hàng ngay nào
               </p>
             </div>
-            <QuantityBox />
-
+            <div
+              className="d-flex align-items-center"
+              style={{ marginBottom: "40px" }}
+            >
+              <QuantityBox />
+              <Button className="btn-add-cart">Thêm vào giỏ hàng</Button>
+            </div>
             <div className="product-action d-flex align-items-center ">
               <Button className="btn-wishlist d-flex align-items-center">
                 <CiHeart />

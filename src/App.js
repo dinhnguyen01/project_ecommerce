@@ -10,6 +10,9 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import ProductModal from "./components/productModal/productModal.js";
 import Listing from "./pages/listing/listing.js";
 import ProductDetail from "./pages/productDetail/productDetail.js";
+import Cart from "./pages/cart/cart.js";
+import Login from "./pages/login/login.js";
+import Register from "./pages/register/register.js";
 
 const MyContext = createContext();
 
@@ -17,6 +20,8 @@ function App() {
   const [locationList, setLocationList] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState("");
   const [isOpenProductModal, setIsOpenProductModal] = useState(false);
+  // const [isHeaderShow, setIsHeaderShow] = useState(true);
+  const [isFooterShow, setIsFooterShow] = useState(true);
 
   useEffect(() => {
     getLocation("https://vapi.vnappmob.com/api/province/");
@@ -34,6 +39,10 @@ function App() {
     setSelectedLocation,
     isOpenProductModal,
     setIsOpenProductModal,
+    // isHeaderShow,
+    // setIsHeaderShow,
+    isFooterShow,
+    setIsFooterShow,
   };
 
   return (
@@ -44,8 +53,11 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/cat/:id" element={<Listing />} />
           <Route path="/product/:id" element={<ProductDetail />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
-        <Footer />
+        {isFooterShow === true && <Footer />}
 
         {isOpenProductModal === true && <ProductModal />}
       </MyContext.Provider>

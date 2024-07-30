@@ -1,5 +1,5 @@
 import Logo from "../../assets/images/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 import LocationDropdown from "../locationDropdown/locationDropdown";
 import { AiOutlineUser } from "react-icons/ai";
@@ -11,6 +11,11 @@ import { MyContext } from "../../App";
 
 const Header = () => {
   const context = useContext(MyContext);
+  const cartPage = useNavigate();
+
+  const handleCartClick = () => {
+    cartPage("/cart");
+  };
 
   return (
     <>
@@ -48,7 +53,10 @@ const Header = () => {
                   <div className="ms-auto header_cart-tab d-flex align-items-center">
                     <span className="header_cart-price">1.000.000đ</span>
                     <div className="position-relative">
-                      <Button className="header-button header_button-cart ms-2">
+                      <Button
+                        onClick={handleCartClick}
+                        className="header-button header_button-cart ms-2"
+                      >
                         <IoBagOutline />
                       </Button>
                       <span className="count d-flex align-items-center justify-content-center">
