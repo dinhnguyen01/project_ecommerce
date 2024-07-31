@@ -22,6 +22,7 @@ function App() {
   const [isOpenProductModal, setIsOpenProductModal] = useState(false);
   // const [isHeaderShow, setIsHeaderShow] = useState(true);
   const [isFooterShow, setIsFooterShow] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
 
   useEffect(() => {
     getLocation("https://vapi.vnappmob.com/api/province/");
@@ -43,6 +44,8 @@ function App() {
     // setIsHeaderShow,
     isFooterShow,
     setIsFooterShow,
+    isLogin,
+    setIsLogin,
   };
 
   return (
@@ -55,7 +58,7 @@ function App() {
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          <Route exact={true} path="/register" element={<Register />} />
         </Routes>
         {isFooterShow === true && <Footer />}
 

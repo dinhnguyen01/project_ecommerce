@@ -39,6 +39,7 @@ const Register = () => {
                   type="password"
                   id="password"
                   placeholder="Nhập mật khẩu..."
+                  autoComplete="password"
                 />
               </div>
 
@@ -56,16 +57,26 @@ const Register = () => {
               </div>
             </form>
 
-            <p className="text-center fs-6 mt-3 my-3">
+            <p className="text-center fs-6 my-2">
               <b>HOẶC</b>
             </p>
 
             <div className="d-flex align-items-center justify-content-center gap-4">
-              <Button className="d-flex align-items-center fs-5 text-capitalize border rounded">
+              <Button
+                className="d-flex align-items-center fs-5 text-capitalize border rounded"
+                style={{
+                  width: "140px",
+                }}
+              >
                 <FcGoogle className="me-1" /> Google
               </Button>
 
-              <Button className="d-flex align-items-center fs-5 text-capitalize border rounded">
+              <Button
+                className="d-flex align-items-center fs-5 text-capitalize border rounded"
+                style={{
+                  width: "140px",
+                }}
+              >
                 <FaFacebook className="me-1 text-primary" /> Facebook
               </Button>
             </div>

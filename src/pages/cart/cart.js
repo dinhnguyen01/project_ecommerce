@@ -186,9 +186,7 @@ const Cart = () => {
                   >
                     <p>
                       Địa chỉ:
-                      <b className="ms-1">
-                        Xóm Đồng Thịnh, Nghĩa Lạc, Nghĩa Hưng, Nam Định
-                      </b>
+                      <b>Xóm Đồng Thịnh, Nghĩa Lạc, Nghĩa Hưng, Nam Định</b>
                     </p>
                   </div>
                 </div>

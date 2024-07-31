@@ -11,10 +11,14 @@ import { MyContext } from "../../App";
 
 const Header = () => {
   const context = useContext(MyContext);
-  const cartPage = useNavigate();
+  const navigate = useNavigate();
 
   const handleCartClick = () => {
-    cartPage("/cart");
+    navigate("/cart");
+  };
+
+  const toLoginPage = () => {
+    navigate("/login");
   };
 
   return (
@@ -47,9 +51,19 @@ const Header = () => {
                 <SearchBox />
 
                 <div className="part3 d-flex align-items-center">
-                  <Button className="header-button header_button-user me-3">
-                    <AiOutlineUser />
-                  </Button>
+                  {context.isLogin !== true ? (
+                    <Button
+                      className="text-capitalize btn-lgoin me-3"
+                      onClick={toLoginPage}
+                    >
+                      Đăng nhập
+                    </Button>
+                  ) : (
+                    <Button className="header-button header_button-user me-3">
+                      <AiOutlineUser />
+                    </Button>
+                  )}
+
                   <div className="ms-auto header_cart-tab d-flex align-items-center">
                     <span className="header_cart-price">1.000.000đ</span>
                     <div className="position-relative">
